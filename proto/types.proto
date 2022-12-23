@@ -1,0 +1,30 @@
+
+enum FieldType {
+    INT = 0;
+    LONG = 1;
+    FLOAT = 2;
+    DOUBLE = 3;
+    STRING = 4;
+    VECTOR = 5;
+    BOOL = 6;
+    GEOPOINT = 7;
+    DATE = 8;
+}
+
+message Vector {
+    repeated float feature = 1 [packed = true];
+    string source = 2;
+}
+
+message Field {
+    string name = 1;
+    FieldType type = 2;
+    bytes value = 3;
+    string source = 4;
+}
+
+message Document {
+    string p_key = 1;
+    repeated Field fields = 2;
+}
+
